@@ -1,0 +1,31 @@
+{
+  "name": "gitter-archive-3",
+  "version": "0.0.0",
+  "description": "FCC Gitter Chat room downloader",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "run-s build",
+    "start": "node .",
+    "prebuild": "rimraf build/*",
+    "build": "babel -D -d build src"
+  },
+  "author": "Abhisek Pattnaik <abhisekp@engineer.com> (https://about.me/abhisekp)",
+  "license": "MIT",
+  "dependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "csv-write-stream": "^2.0.0",
+    "lodash": "^4.17.2",
+    "npm-run-all": "^3.1.2",
+    "rimraf": "^2.5.4"
+  },
+  "babel": {
+    "sourceMap": "inline",
+    "presets": [
+      "latest",
+      "stage-0"
+    ]
+  }
+}
