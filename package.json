@@ -4,28 +4,55 @@
   "description": "FCC Gitter Chat room downloader",
   "main": "index.js",
   "scripts": {
-    "prestart": "run-s build",
-    "start": "node .",
+    "start": "cross-env NODE_ENV=production node .",
+    "start:dev": "cross-env NODE_ENV=development babel-node .",
     "prebuild": "rimraf build/*",
-    "build": "babel -D -d build src"
+    "build": "babel -D -d build src",
+    "test": "xo"
+  },
+  "bin": {
+    "gitter-archive": "./bin/cli.js"
   },
   "author": "Abhisek Pattnaik <abhisekp@engineer.com> (https://about.me/abhisekp)",
   "license": "MIT",
   "dependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-polyfill": "^6.20.0",
-    "babel-preset-latest": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0",
+    "cross-env": "^3.1.3",
     "csv-write-stream": "^2.0.0",
+    "debug": "^2.3.3",
+    "hjson": "^2.3.1",
     "lodash": "^4.17.2",
     "npm-run-all": "^3.1.2",
-    "rimraf": "^2.5.4"
+    "rimraf": "^2.5.4",
+    "winston": "^2.3.0",
+    "winston-papertrail": "^1.0.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-env": "^1.0.2",
+    "babel-preset-stage-0": "^6.16.0",
+    "xo": "^0.17.1"
   },
   "babel": {
     "sourceMap": "inline",
     "presets": [
-      "latest",
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          },
+          "loose": true,
+          "debug": true
+        }
+      ],
       "stage-0"
+    ]
+  },
+  "xo": {
+    "esnext": true,
+    "envs": [
+      "node"
     ]
   }
 }
