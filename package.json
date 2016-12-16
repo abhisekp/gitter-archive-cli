@@ -8,6 +8,7 @@
     "start:dev": "cross-env NODE_ENV=development babel-node .",
     "prebuild": "rimraf build/*",
     "build": "babel -D -d build src",
+    "build:watch": "nodemon -q -w src -x run-s build",
     "test": "xo"
   },
   "bin": {
