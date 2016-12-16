@@ -1,0 +1,16 @@
+rooms: {
+  noArchiveList: [
+    # rooms not to archive
+  ]
+  archiveNoDeleteList: [
+    # rooms to not delete but archive
+  ]
+}
+
+groups: {
+  enabled: [{
+    groupUri: ""
+    groupId: ""
+  }]
+  disabled: []
+}
