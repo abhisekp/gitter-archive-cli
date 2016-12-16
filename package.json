@@ -47,16 +47,7 @@
   "babel": {
     "sourceMap": "inline",
     "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "node": "current"
-          },
-          "loose": true,
-          "debug": true
-        }
-      ],
+      "latest",
       "stage-0"
     ]
   },
