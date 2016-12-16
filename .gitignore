@@ -94,3 +94,5 @@ jspm_packages
 
 !/bin
 /archives
+.env
+!*example.env
