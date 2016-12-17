@@ -1,9 +1,9 @@
 import debug from 'debug';
 import RateLimiterAPI from 'rate-limiter-api';
 import axios from 'axios';
-import stampit from 'stampit';
 import promiseRetry from 'promise-retry';
 import _ from 'lodash/fp';
+import stampit from 'stampit';
 // import {dedent} from 'dentist';
 // import {logger} from './logger';
 
@@ -52,10 +52,10 @@ const GitterClientFactory = stampit({
 
 	methods: {
 		request({
-			url, /* url endpoint */
-			query = {}, /* query param */
-			headers = {}, /* extra headers */
-			method = 'GET', /* method type */
+			url /* url endpoint */,
+			query = {} /* query param */,
+			headers = {} /* extra headers */,
+			method = 'GET' /* method type */,
 		} = {}) {
 			if (_.isNil(url)) {
 				throw new EMISSINGURL('url is required');
@@ -96,8 +96,8 @@ const GitterClientFactory = stampit({
 						console.error(`Rejected for ${err.stack}`);
 
 						if (!response) {
-							throw err;
-							// return retry(err);
+							// throw err;
+							return retry(err);
 						}
 
 						// @FIXME use winston

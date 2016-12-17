@@ -11,3 +11,11 @@
 2. Read `fcc-rooms.json` file and grab each room
 3. For each room, create a directory and store messages in the following format
 	- `<room-name>-<before-id>-<save-timestamp>` e.g. `HelpBackend-<message-before-id>-1481412180635`
+
+# TODO
+
+- [x] Get a single set of messages in a room
+- [x] Save a single set of messages for a room
+- [ ] Save error log if retry fails
+	- Error Log format [.tsv]
+	- `['room_uri', 'room_id', 'before_id', 'skip', 'err_message']`
