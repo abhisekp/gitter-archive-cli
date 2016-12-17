@@ -4,6 +4,8 @@ Gitter Chat room message downloader
 
 # Usage
 
+Use node v7 to run.
+
 ```sh
 # run build
 $ yarn run build
