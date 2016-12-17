@@ -1,11 +1,11 @@
 console.log('App Start');
 
-const willRunFromSource = () => /^prod/i.test(process.env.NODE_ENV) || /node(.exe|.cmd)?$/i.test(process.argv[0]);
+const willRunFromSource = () => /^prod/i.test(process.env.NODE_ENV);
 
 if (willRunFromSource()) {
 	console.log('Running from build');
-	require('./build');
+	module.exports = require('./build');
 } else {
 	console.log('Running from source');
-	require('./src');
+	module.exports = require('./src');
 }
