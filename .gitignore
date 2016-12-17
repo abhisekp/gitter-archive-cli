@@ -95,3 +95,4 @@ jspm_packages
 !/bin
 .env
 !*example.env
+build
