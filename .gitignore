@@ -92,7 +92,9 @@ jspm_packages
 
 ### CUSTOM IGNORES ###
 
-!/bin
+/bin
 .env
 !*example.env
-build
+/build
+/lib
+!README.*
