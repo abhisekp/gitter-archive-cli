@@ -56,6 +56,7 @@ const GitterClientFactory = stampit({
 			query = {} /* query param */,
 			headers = {} /* extra headers */,
 			method = 'GET' /* method type */,
+			body /* body of request (optional) */,
 		} = {}) {
 			if (_.isNil(url)) {
 				throw new EMISSINGURL('url is required');
@@ -75,6 +76,7 @@ const GitterClientFactory = stampit({
 					params: query,
 					headers: __headers,
 					timeout: 15e3 /* 15 seconds */,
+					data: body,
 				})
 					.then(response => {
 						const limits = {
