@@ -1,8 +1,8 @@
 import winston from 'winston';
 import appRoot from 'app-root-path';
 import {Papertrail} from 'winston-papertrail';
+import {env} from './app-config';
 
-const {env} = require(`${appRoot}/config/app-config`);
 const {PAPERTRAIL_HOST = '', PAPERTRAIL_PORT = ''} = env;
 
 const ptLogger = new Papertrail({

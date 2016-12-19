@@ -13,11 +13,11 @@ import {
 	saveMessages, 
 	saveError,
 } from './save-messages';
+import {env} from './app-config';
 
 const log = debug('gitter-archive');
 
 const URL = HJSON.parse(fs.readFileSync(path.resolve(`${appRoot}/url-templates.hjson`), 'utf-8'));
-const {env} = require(`${appRoot}/config/app-config`);
 const {GITTER_HOST = 'api.gitter.im', GITTER_API_VERSION = 'v1', GITTER_TOKEN = ''} = env;
 
 // =================== <DELETE> =====================
@@ -58,6 +58,7 @@ const fetchAllRoomMessagesAsync = async ({roomId, beforeId, skip = 0, ...restpar
 		if (_.isEmpty(messages)) {
 			const errorMessage = hasErrors ? 'with errors' : 'with no errors';
 			logger.info(`Room: ${roomUri} (${roomId}) archive completed ${errorMessage}.`);
+			logger.close();
 			return undefined;
 		}
 
@@ -75,20 +76,6 @@ const fetchAllRoomMessagesAsync = async ({roomId, beforeId, skip = 0, ...restpar
 		saveError({writer: errorWriter, error: err, roomId, beforeId, skip, roomUri});
 	}
 };
-
-// fetchAllRoomInfoAsync({groupId: '57542cf4c43b8c6019778297' /* FreeCodeCamp */});
-// fetchAllRoomMessagesAsync({
-// 	roomId: '546fd572db8155e6700d6eaf' /* FreeCodeCamp/FreeCodeCamp */,
-// 	groupId: '57542cf4c43b8c6019778297' /* FreeCodeCamp */,
-// 	roomUri: 'FreeCodeCamp/FreeCodeCamp',
-// 	beforeId: '583b73bb381827c24d8b19e3',
-// 	get messageWriter() {
-// 		return getMessageWriter(this.roomUri);
-// 	},
-// 	get errorWriter() {
-// 		return getErrorWriter(this.roomUri);
-// 	},
-// });
 
 module.exports = {
 	fetchAllRoomMessagesAsync,

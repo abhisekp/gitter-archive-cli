@@ -1,8 +1,8 @@
-const path = require('path');
-const _ = require('lodash/fp');
-const debug = require('debug');
-const appConfig = require('config');
-const appRoot = require('app-root-path');
+import path from 'path';
+import _ from 'lodash/fp';
+import debug from 'debug';
+import appConfig from 'config';
+import appRoot from 'app-root-path';
 
 require('dotenv').config({path: path.resolve(`${appRoot}/.env`)});
 

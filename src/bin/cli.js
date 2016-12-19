@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'production';
+import path from 'path';
+import appRoot from 'app-root-path';
 
-var path = require('path');
-var appRoot = require('app-root-path');
-var gArc = require(String(appRoot));
+process.env.NODE_ENV = process.env.NODE_ENV || 'production';
+const gArc = require(String(appRoot));
 
 var beforeId = process.argv[2];
 console.log('Before ID: ' + beforeId);
