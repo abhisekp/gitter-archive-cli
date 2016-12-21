@@ -98,3 +98,6 @@ jspm_packages
 /build
 /lib
 !README.*
+/.gitterarchiverc
+/.gitterarchiverc.*
+/gitterarchive.config.js
