@@ -1,4 +1,0 @@
-{
-	group-rooms: /groups/{group_id}/rooms
-	room-messages: /rooms/{room_id}/chatMessages{?skip,beforeId,lean}
-}
