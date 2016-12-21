@@ -4,6 +4,33 @@ Gitter Chat room message downloader
 
 # Usage
 
+Add a `.gitterarchiverc[.json|.js|.yml]` or `gitterarchive.config.js` file in the directory where you execute the CLI in the following format.  
+> The configuration is loaded using [**cosmiconfig**](http://npm.im/cosmiconfig) module.
+
+```json
+{
+  "rooms": {
+    "noArchiveList": [
+      // rooms not to archive
+    ],
+    "archiveNoDeleteList": [
+      // rooms to not delete but archive
+    ],
+    "archiveList": [
+      // list of rooms to archive
+    ]
+  },
+
+  "groups": {
+    "enabled": [{
+      "groupUri": "",
+      "groupId": ""
+    }],
+    "disabled": []
+  }
+}
+```
+
 Use node v7 to run.
 
 ```sh
