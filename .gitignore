@@ -101,3 +101,4 @@ jspm_packages
 /.gitterarchiverc
 /.gitterarchiverc.*
 /gitterarchive.config.js
+/gitterarchive-settings.json
