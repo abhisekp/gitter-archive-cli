@@ -89,6 +89,11 @@ const runAsync = async () => {
     console.dir(roomList);
     gArc.logger.info('Updated store with the new room list');
 
+    if (_.isEmpty(roomList)) {
+      gArc.logger.close();
+      return undefined;
+    }
+
     // for each room in the room list, fetch the messages in the room
     _.forEach(roomInfo => {
       gArc.fetchAllRoomMessagesAsync({
