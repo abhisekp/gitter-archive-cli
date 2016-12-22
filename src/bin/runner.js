@@ -86,6 +86,7 @@ const runAsync = async () => {
 
     // save the room list in store
     store.update('rooms', roomList);
+    console.dir(roomList);
     gArc.logger.info('Updated store with the new room list');
 
     // for each room in the room list, fetch the messages in the room
