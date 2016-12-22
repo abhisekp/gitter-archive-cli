@@ -37,6 +37,8 @@ const getNextGitterClient = (() => {
 
 const fetchAllRoomMessagesAsync = async ({roomId, beforeId, skip = 0, ...restparam} = {}) => {
 	const {groupId, roomUri, hasErrors = false, errorWriter, messageWriter, store} = restparam;
+	store.updateRoom({id: roomId}, 'beforeId', beforeId);
+	store.updateRoom({id: roomId}, 'skip', skip);
 
 	try {
 		// get a message set
@@ -52,8 +54,6 @@ const fetchAllRoomMessagesAsync = async ({roomId, beforeId, skip = 0, ...restpar
 		logger.info(`Total Room Messages Retrieved = ${totalMessagesRetrieved}`);
 		
 		saveMessages({writer: messageWriter, messages, roomId, roomUri});
-		store.updateRoom({id: roomId}, 'beforeId', beforeId);
-		store.updateRoom({id: roomId}, 'skip', skip);
 
 		// for message set less than LIMIT = 100, mark completion of the room archive
 		if (messagesCount < 100) {
@@ -65,6 +65,8 @@ const fetchAllRoomMessagesAsync = async ({roomId, beforeId, skip = 0, ...restpar
 		}
 
 		const __beforeId = getEarliestMessageId(messages);
+		store.updateRoom({id: roomId}, 'beforeId', __beforeId);
+		store.updateRoom({id: roomId}, 'skip', skip);
 		return fetchAllRoomMessagesAsync({roomId, beforeId: __beforeId, skip, hasErrors, groupId, roomUri, errorWriter, messageWriter, store});
 	} catch (err) {
 		console.error(err);
