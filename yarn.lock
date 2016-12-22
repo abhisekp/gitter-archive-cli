@@ -1315,6 +1315,10 @@ cycle@1.0.x:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/cycle/-/cycle-1.0.3.tgz#21e80b2be8580f98b468f379430662b046c34ad2"
 
+cyclic-next@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/cyclic-next/-/cyclic-next-1.0.1.tgz#bb6c0ccd59472220c4824e6e17a102b1cc9d6ed2"
+
 d@^0.1.1, d@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/d/-/d-0.1.1.tgz#da184c535d18d8ee7ba2aa229b914009fae11309"
