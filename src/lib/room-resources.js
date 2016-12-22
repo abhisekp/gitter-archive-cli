@@ -27,7 +27,7 @@ const RoomResources = stampit({
 		 * @since 1.0.0
 		 * @see https://developer.gitter.im/docs/messages-resource
 		 */
-		getChatMessages({roomId, beforeId, skip = 0, lean = true, ...restparam} = {}) {
+		getChatMessages({roomId, beforeId, afterId, skip = 0, lean = true, ...restparam} = {}) {
 			logRoom('Room Id is set to %o', roomId);
 			logRoom('Before Id is set to %o', beforeId);
 			logRoom('Skip is set to %o', skip);
@@ -42,6 +42,7 @@ const RoomResources = stampit({
 				query: {
 					skip,
 					beforeId,
+					afterId,
 					limit: 100,
 					lean,
 				},
@@ -65,8 +66,6 @@ const RoomResources = stampit({
 });
 
 export {
-	logRoom,
-	logRoomVerbose,
 	RoomResources,
 	EGITTERROOM,
 };

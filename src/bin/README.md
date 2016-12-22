@@ -26,3 +26,8 @@ $ gitter-archive FreeCodeCamp /home/user/archives
 - if archive directory not given, then default to "<current path>/archives" and confirm
 - even if archive directory is given, confirm the full directory path i.e. `archives/<group-name>/` directory
 
+# Strategy
+
+- [ ] Get configuration from `current` path.
+- [ ] Get stored settings from `current` path.
+- [ ] Convert the rooms in configuration in format of stored settings. 

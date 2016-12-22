@@ -14,37 +14,17 @@ import {
 	saveError,
 } from './save-messages';
 import {env} from './app-config';
+import {pickDeepAll} from './util';
 
 const log = debug('gitter-archive');
 
-const URL = HJSON.parse(fs.readFileSync(path.resolve(`${appRoot}/url-templates.hjson`), 'utf-8'));
 const {GITTER_HOST = 'api.gitter.im', GITTER_API_VERSION = 'v1', GITTER_TOKEN = ''} = env;
-
-// =================== <DELETE> =====================
-
-const groupRoomsTemplate = urlTemplate.parse(URL['group-rooms']);
-
-const getGitterEndpoint = (template, opts) => {
-	const __template = _.isString(template) ? urlTemplate.parse(template) : template;
-	const __endpoint = __template.expand(opts);
-	const endpoint = `https://${GITTER_HOST}/${GITTER_API_VERSION}${__endpoint}`;
-	return endpoint;
-}
-
-const fetchAllRoomInfoAsync = async ({groupId} = {}) => {
-	const endpoint = getGitterEndpoint(groupRoomsTemplate, {group_id: groupId});
-
-	log('Group Rooms Endpoint: %o', endpoint);
-	logger.info(`Group Rooms Endpoint: ${endpoint}`);
-};
-
-// ===================== </DELETE> =====================
 
 const getEarliestMessageId = _.flow(_.first, _.get('id'));
 
 let totalMessagesRetrieved = 0;
 const fetchAllRoomMessagesAsync = async ({roomId, beforeId, skip = 0, ...restparam} = {}) => {
-	const {groupId, roomUri, hasErrors = false, errorWriter, messageWriter} = restparam;
+	const {groupId, roomUri, hasErrors = false, errorWriter, messageWriter, store} = restparam;
 
 	try {
 		// get a message set
@@ -58,6 +38,7 @@ const fetchAllRoomMessagesAsync = async ({roomId, beforeId, skip = 0, ...restpar
 		if (_.isEmpty(messages)) {
 			const errorMessage = hasErrors ? 'with errors' : 'with no errors';
 			logger.info(`Room: ${roomUri} (${roomId}) archive completed ${errorMessage}.`);
+			store.updateRoom({id: roomId}, 'isArchived', true);
 			logger.close();
 			return undefined;
 		}
@@ -68,16 +49,22 @@ const fetchAllRoomMessagesAsync = async ({roomId, beforeId, skip = 0, ...restpar
 		logger.info(`Total Room Messages Retrieved = ${totalMessagesRetrieved}`);
 		
 		saveMessages({writer: messageWriter, messages, roomId, roomUri});
+		store.updateRoom({id: roomId}, 'beforeId', beforeId);
+		store.updateRoom({id: roomId}, 'skip', skip);
 
 		const __beforeId = getEarliestMessageId(messages);
-		fetchAllRoomMessagesAsync({roomId, beforeId: __beforeId, skip, hasErrors, groupId, roomUri, errorWriter, messageWriter});
+		fetchAllRoomMessagesAsync({roomId, beforeId: __beforeId, skip, hasErrors, groupId, roomUri, errorWriter, messageWriter, store});
 	} catch (err) {
 		console.error(err);
 		saveError({writer: errorWriter, error: err, roomId, beforeId, skip, roomUri});
+		logger.close();
 	}
 };
 
 module.exports = {
 	fetchAllRoomMessagesAsync,
 	getFileWriteStream,
+	gitterClients,
+	logger,
+	pickDeepAll,
 };

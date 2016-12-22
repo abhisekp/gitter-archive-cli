@@ -1,10 +1,12 @@
 import path from 'path';
 import _ from 'lodash/fp';
 import debug from 'debug';
-import appConfig from 'config';
+import cosmiconfig from 'cosmiconfig';
 import appRoot from 'app-root-path';
 
-require('dotenv').config({path: path.resolve(`${appRoot}/.env`)});
+require('dotenv').config({path: path.resolve(`${process.cwd()}/.env`)});
+
+const pkgConfig = require(`${appRoot}/package.json`);
 
 /* Debug Logs */
 const logAppEnv = debug('gitter-archive:env');
@@ -33,8 +35,7 @@ const gitterTokens = _.flow(
 )(env);
 
 // environment status bools
-// @FIXME detect isProd or not checking if babel runtime is present
-const isProd = _.startsWith('prod', nodeEnv); // || !inPath(`${appRoot}/src`);
+const isProd = _.startsWith('prod', nodeEnv);
 logAppConfig('set isProd to %o', isProd);
 
 const isTest = _.startsWith('test', nodeEnv);
@@ -47,21 +48,20 @@ logAppConfig('set isDev to %o', isDev);
 const srcPath = SRC_PATH || (isProd ? 'build' : 'src');
 logAppConfig('set srcPath to %o', srcPath);
 
+const appConfigAsync = cosmiconfig('gitterarchive');
+
 /* App Configurations */
-logAppConfigVerbose('App Configurations\n%o', appConfig);
+logAppConfigVerbose('App Configurations\n%o', appConfigAsync);
 
 debug('App Config')('!! Module Loaded !!');
 
-module.exports = {
+export {
 	env,
 	isProd,
 	isTest,
 	isDev,
 	srcPath,
-	logAppEnvVerbose,
-	logAppEnv,
-	logAppConfig,
-	logAppConfigVerbose,
-	appConfig,
-	gitterTokens
+	appConfigAsync,
+	gitterTokens,
+	pkgConfig,
 };

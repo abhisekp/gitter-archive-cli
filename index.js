@@ -1,8 +1,8 @@
 console.log('App Start');
 
-const willRunFromSource = () => /^prod/i.test(process.env.NODE_ENV);
+const willRunFromBuild = () => /^prod/i.test(process.env.NODE_ENV);
 
-if (willRunFromSource()) {
+if (willRunFromBuild()) {
 	console.log('Running from build (lib)');
 	module.exports = require('./lib');
 } else {

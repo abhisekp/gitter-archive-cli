@@ -3,6 +3,7 @@ import path from 'path';
 import appRoot from 'app-root-path';
 import _ from 'lodash/fp';
 import fs from 'fs';
+import mkpath from 'mkpath';
 import {pickDeepAll} from './util';
 import {logger} from './logger';
 
@@ -11,7 +12,11 @@ const getFileWriteStream = ({filePath, headers} = {}) => {
 		throw new Error('Specify full filepath for saving the messages.');
 	}
 
-	const fsWriteStream = fs.createWriteStream(path.resolve(`${filePath}.tsv`), {
+	const __filePath = path.resolve(`${filePath}.tsv`);
+	const __dirPath = path.parse(__filePath).dir;
+	mkpath.sync(__dirPath, '0644');
+
+	const fsWriteStream = fs.createWriteStream(__filePath, {
 		flags: 'a', /* append */
 	});
 

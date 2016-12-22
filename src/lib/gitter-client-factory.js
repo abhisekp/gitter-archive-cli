@@ -68,7 +68,7 @@ const GitterClientFactory = stampit({
 				'Content-Type': 'application/json',
 				'Authorization': `Bearer ${this.token}`,
 			}, headers);
-			logGitter('Headers:\n%o', __headers); // @DELETEME in production
+			logGitter('Headers:\n%o', __headers); // @DELETEME
 
 			const taskFn = retry => this.rateLimiter.limit(responseHandler => {
 				// modify the following according to the request library use
@@ -113,9 +113,12 @@ const GitterClientFactory = stampit({
 			}).catch(err => {
 				console.error(`Rejected for ${err.stack}`);
 
+				// @TODO think about this and UNCOMMENT
+				/*
 				if (_.get('response.clientError', err)) {
 					throw err;
 				}
+				*/
 
 				return retry(err);
 			});
