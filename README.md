@@ -3,6 +3,12 @@
 
 # Usage
 
+Install `gitter-archive` as global.
+
+```sh
+$ npm i -g gitter-archive
+```
+
 Add a `.gitterarchiverc[.json|.js|.yml|.yaml]` or `gitterarchive.config.js` file in the directory where you execute the CLI in the following format.  
 > The configuration is loaded using [**cosmiconfig**](http://npm.im/cosmiconfig) module.
 
@@ -37,6 +43,13 @@ Add a `.gitterarchiverc[.json|.js|.yml|.yaml]` or `gitterarchive.config.js` file
     ]
   }
 }
+```
+
+Copy the `example.env` as `.env` and fill in the details.  
+Start the archive process.
+
+```sh
+$ gitter-archive
 ```
 
 Use node v7 to run.
