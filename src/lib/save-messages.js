@@ -14,7 +14,7 @@ const getFileWriteStream = ({filePath, headers} = {}) => {
 
 	const __filePath = path.resolve(`${filePath}.tsv`);
 	const __dirPath = path.parse(__filePath).dir;
-	mkpath.sync(__dirPath, '0644');
+	mkpath.sync(__dirPath);
 
 	const fsWriteStream = fs.createWriteStream(__filePath, {
 		flags: 'a', /* append */
