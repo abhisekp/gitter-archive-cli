@@ -53,7 +53,7 @@ const fetchAllRoomMessagesAsync = async ({roomId, beforeId, skip = 0, ...restpar
 		store.updateRoom({id: roomId}, 'skip', skip);
 
 		const __beforeId = getEarliestMessageId(messages);
-		fetchAllRoomMessagesAsync({roomId, beforeId: __beforeId, skip, hasErrors, groupId, roomUri, errorWriter, messageWriter, store});
+		return fetchAllRoomMessagesAsync({roomId, beforeId: __beforeId, skip, hasErrors, groupId, roomUri, errorWriter, messageWriter, store});
 	} catch (err) {
 		console.error(err);
 		saveError({writer: errorWriter, error: err, roomId, beforeId, skip, roomUri});
