@@ -31,6 +31,7 @@ logAppEnv('process.env.SRC_PATH is set to %o', SRC_PATH);
 const gitterTokens = _.flow(
 	_.pickBy((_, key) => /^GITTER_?TOKEN/i.test(key)),
 	_.values,
+	_.compact,
 	_.uniq
 )(env);
 
