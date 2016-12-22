@@ -1,32 +1,40 @@
-# Gitter Archive
-
-Gitter Chat room message downloader
+<h1 align="center">Gitter Archive</h1>
+<p align="center">Gitter Chat room message downloader</p>
 
 # Usage
 
-Add a `.gitterarchiverc[.json|.js|.yml]` or `gitterarchive.config.js` file in the directory where you execute the CLI in the following format.  
+Add a `.gitterarchiverc[.json|.js|.yml|.yaml]` or `gitterarchive.config.js` file in the directory where you execute the CLI in the following format.  
 > The configuration is loaded using [**cosmiconfig**](http://npm.im/cosmiconfig) module.
 
-```json
+```hjson
 {
   "rooms": {
     "noArchiveList": [
       // rooms not to archive
+      // e.g.
+
+      "FreeCodeCamp/FreeCodeCamp"
     ],
     "archiveNoDeleteList": [
+      // @TODO
       // rooms to not delete but archive
     ],
     "archiveList": [
       // list of rooms to archive
+      // e.g.
+
+      "FreeCodeCamp/*"
     ]
   },
 
   "groups": {
     "enabled": [{
-      "groupUri": "",
-      "groupId": ""
+      "uri": "FreeCodeCamp",
+      "id": "57542cf4c43b8c6019778297"
     }],
-    "disabled": []
+    "disabled": [
+      // groups not to be scanned
+    ]
   }
 }
 ```
@@ -55,20 +63,26 @@ $ yarn global nodemon
 $ yarn run build:watch
 ```
 
+----
 
+----
 # CLI
 
 > TODO
 
 - Add cli processor modules
 
-### Features
+## Features
 
-**CLI flags**  
+### CLI options
 
-- beforeId `-b`
-- roomUri or roomId
-- 
+- `--boost` - boost archiving using `skip` parameter
+- `-b` - beforeId 
+- `--gid` - group id (required)
+- `--guri` - group uri (optional)
+- `--uri` - room uri (optional)
+- `--id` - room id (required)
+- `--ignore, -i` - ignore room uri pattern (multiple)
 
 # Notes
 
