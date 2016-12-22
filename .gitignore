@@ -92,6 +92,7 @@ jspm_packages
 
 ### CUSTOM IGNORES ###
 
+!src/**
 /bin
 .env
 !*example.env

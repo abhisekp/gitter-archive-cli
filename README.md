@@ -84,6 +84,7 @@ $ yarn run build:watch
 > TODO
 
 - Add cli processor modules
+- Make Papertrail use optional
 
 ## Features
 
