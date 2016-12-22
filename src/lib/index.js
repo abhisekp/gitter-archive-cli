@@ -23,8 +23,6 @@ const {GITTER_HOST = 'api.gitter.im', GITTER_API_VERSION = 'v1', GITTER_TOKEN = 
 
 const getEarliestMessageId = _.flow(_.first, _.get('id'));
 
-let totalMessagesRetrieved = 0;
-
 const getNextGitterClient = (() => {
 	let clientIdx = 0;
 	return () => {
@@ -36,7 +34,11 @@ const getNextGitterClient = (() => {
 })();
 
 const fetchAllRoomMessagesAsync = async ({roomId, beforeId, skip = 0, ...restparam} = {}) => {
-	const {groupId, roomUri, hasErrors = false, errorWriter, messageWriter, store} = restparam;
+	const {
+		groupId, roomUri, hasErrors = false, 
+		errorWriter, messageWriter, store, messageCount: totalMessageCount = 0,
+	} = restparam;
+
 	store.updateRoom({id: roomId}, 'beforeId', beforeId);
 	store.updateRoom({id: roomId}, 'skip', skip);
 
@@ -48,15 +50,16 @@ const fetchAllRoomMessagesAsync = async ({roomId, beforeId, skip = 0, ...restpar
 			skip,
 		});
 
-		const messagesCount = _.size(messages);
-		totalMessagesRetrieved += messagesCount;
-		logger.info(`Room Messages Count = ${messagesCount}`);
-		logger.info(`Total Room Messages Retrieved = ${totalMessagesRetrieved}`);
+		const __messageCount = _.size(messages);
+		const __totalMessageCount = totalMessageCount + __messageCount;
+		store.updateRoom({id: roomId}, 'messageCount', __totalMessageCount);
+		logger.info(`Room Messages Count = ${__messageCount}`);
+		logger.info(`Total Room Messages Retrieved = ${__totalMessageCount}`);
 		
 		saveMessages({writer: messageWriter, messages, roomId, roomUri});
 
 		// for message set less than LIMIT = 100, mark completion of the room archive
-		if (messagesCount < 100) {
+		if (__messageCount < 100) {
 			const errorMessage = hasErrors ? 'with errors' : 'with no errors';
 			logger.info(`Room: ${roomUri} (${roomId}) archive completed ${errorMessage}.`);
 			store.updateRoom({id: roomId}, 'isArchived', true);
@@ -65,9 +68,14 @@ const fetchAllRoomMessagesAsync = async ({roomId, beforeId, skip = 0, ...restpar
 		}
 
 		const __beforeId = getEarliestMessageId(messages);
+		
 		store.updateRoom({id: roomId}, 'beforeId', __beforeId);
 		store.updateRoom({id: roomId}, 'skip', skip);
-		return fetchAllRoomMessagesAsync({roomId, beforeId: __beforeId, skip, hasErrors, groupId, roomUri, errorWriter, messageWriter, store});
+
+		return fetchAllRoomMessagesAsync({
+			roomId, beforeId: __beforeId, skip, hasErrors, groupId, roomUri, 
+			errorWriter, messageWriter, store, messageCount: __totalMessageCount,
+		});
 	} catch (err) {
 		console.error(err);
 		saveError({writer: errorWriter, error: err, roomId, beforeId, skip, roomUri});

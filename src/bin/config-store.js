@@ -64,6 +64,7 @@ const store = {
       toDelete: false,
       isDeleted: false,
       beforeId: undefined,
+      messageCount: 0,
       skip: 0,
     }, __formattedRoomInfo);
 

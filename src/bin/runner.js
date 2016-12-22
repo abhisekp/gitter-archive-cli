@@ -101,6 +101,7 @@ const runAsync = async () => {
         roomUri: _.get('uri', roomInfo),
         beforeId: _.get('beforeId', roomInfo),
         skip: _.get('skip', roomInfo),
+        messageCount: _.get('messageCount', roomInfo),
         get messageWriter() {
           return getMessageWriter(this.roomUri);
         },
