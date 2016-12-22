@@ -15,6 +15,7 @@ import {
 } from './save-messages';
 import {env} from './app-config';
 import {pickDeepAll} from './util';
+import cyclicNext from 'cyclic-next';
 
 const log = debug('gitter-archive');
 
@@ -23,25 +24,27 @@ const {GITTER_HOST = 'api.gitter.im', GITTER_API_VERSION = 'v1', GITTER_TOKEN = 
 const getEarliestMessageId = _.flow(_.first, _.get('id'));
 
 let totalMessagesRetrieved = 0;
+
+const getNextGitterClient = (() => {
+	let clientIdx = 0;
+	return () => {
+		const client = gitterClients[clientIdx];
+		const totalClients = _.size(gitterClients);
+		clientIdx = cyclicNext(totalClients, clientIdx);
+		return client;
+	};
+})();
+
 const fetchAllRoomMessagesAsync = async ({roomId, beforeId, skip = 0, ...restparam} = {}) => {
 	const {groupId, roomUri, hasErrors = false, errorWriter, messageWriter, store} = restparam;
 
 	try {
 		// get a message set
-		const {messages} = await gitterClients[0].getChatMessages({
+		const {messages} = await getNextGitterClient().getChatMessages({
 			roomId,
 			beforeId,
 			skip,
 		});
-
-		// for empty message set, mark completion of the room archive
-		if (_.isEmpty(messages)) {
-			const errorMessage = hasErrors ? 'with errors' : 'with no errors';
-			logger.info(`Room: ${roomUri} (${roomId}) archive completed ${errorMessage}.`);
-			store.updateRoom({id: roomId}, 'isArchived', true);
-			logger.close();
-			return undefined;
-		}
 
 		const messagesCount = _.size(messages);
 		totalMessagesRetrieved += messagesCount;
@@ -51,6 +54,15 @@ const fetchAllRoomMessagesAsync = async ({roomId, beforeId, skip = 0, ...restpar
 		saveMessages({writer: messageWriter, messages, roomId, roomUri});
 		store.updateRoom({id: roomId}, 'beforeId', beforeId);
 		store.updateRoom({id: roomId}, 'skip', skip);
+
+		// for message set less than LIMIT = 100, mark completion of the room archive
+		if (messagesCount < 100) {
+			const errorMessage = hasErrors ? 'with errors' : 'with no errors';
+			logger.info(`Room: ${roomUri} (${roomId}) archive completed ${errorMessage}.`);
+			store.updateRoom({id: roomId}, 'isArchived', true);
+			logger.close();
+			return undefined;
+		}
 
 		const __beforeId = getEarliestMessageId(messages);
 		return fetchAllRoomMessagesAsync({roomId, beforeId: __beforeId, skip, hasErrors, groupId, roomUri, errorWriter, messageWriter, store});
@@ -65,6 +77,7 @@ module.exports = {
 	fetchAllRoomMessagesAsync,
 	getFileWriteStream,
 	gitterClients,
+	getNextGitterClient,
 	logger,
 	pickDeepAll,
 };
