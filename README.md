@@ -104,3 +104,9 @@ With a limit of `100` messages/request and `100` requests/minute,
 total downloadable messages/minute = `100 x 100` = `10,000` messages per minute
 
 :question: With a skip limit of `5000`, how can the scrapping be improved? 
+
+# Known Bugs
+
+- After complete archive of rooms, they're marked `isArchived`  as `true`.  
+  Hence, the next time the app is run, it removes the archived rooms from the list.  
+  The expected behavior is that it should simply ignore the archived rooms and only consider the non archived rooms.
