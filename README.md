@@ -1,14 +1,20 @@
 <h1 align="center">Gitter Archive</h1>
 <p align="center">Gitter Chat room message downloader</p>
 
+[![npm](https://img.shields.io/npm/v/gitter-archive-cli.svg)](https://www.npmjs.com/package/gitter-archive-cli) [![npm](https://img.shields.io/npm/l/gitter-archive-cli.svg)](https://github.com/abhisekp/gitter-archive-cli)
+
 # Usage
 
 Install [**yarn**](https://yarnpkg.com/en/docs/install) package manager.
 
-Install `gitter-archive` as global.
+Install `gitter-archive-cli` as global.
 
 ```sh
-$ yarn global gitter-archive
+$ yarn global gitter-archive-cli
+
+# OR
+
+$ npm install -g gitter-archive-cli
 ```
 
 Add a `.gitterarchiverc[.json|.js|.yml|.yaml]` or `gitterarchive.config.js` file in the directory where you execute the CLI in the following format.  
@@ -120,4 +126,3 @@ total downloadable messages/minute = `100 x 100` = `10,000` messages per minute
 # TODO
 
 - Add cli processor modules
-- Make Papertrail optional
