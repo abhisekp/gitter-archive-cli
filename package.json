@@ -55,6 +55,7 @@
     "promise-retry": "^1.1.1",
     "rate-limiter-api": "^1.0.11",
     "rimraf": "^2.5.4",
+    "source-map-support": "^0.4.7",
     "stampit": "^3.0.6",
     "vorpal": "^1.11.4",
     "winston": "^2.3.0",
