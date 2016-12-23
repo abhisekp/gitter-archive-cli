@@ -10,9 +10,12 @@ $ npm i -g gitter-archive
 ```
 
 Add a `.gitterarchiverc[.json|.js|.yml|.yaml]` or `gitterarchive.config.js` file in the directory where you execute the CLI in the following format.  
-> The configuration is loaded using [**cosmiconfig**](http://npm.im/cosmiconfig) module.
+> The configuration is loaded using [**`cosmiconfig`**](http://npm.im/cosmiconfig) module.  
+The archive and no archive room lists are matched using [**`extglob`**](http://npm.im/extglob) module.
 
-```hjson
+NOTE: if you're copy pasting the following example, remove the comments.
+
+```json5
 {
   "rooms": {
     "noArchiveList": [
@@ -20,10 +23,6 @@ Add a `.gitterarchiverc[.json|.js|.yml|.yaml]` or `gitterarchive.config.js` file
       // e.g.
 
       "FreeCodeCamp/FreeCodeCamp"
-    ],
-    "archiveNoDeleteList": [
-      // @TODO
-      // rooms to not delete but archive
     ],
     "archiveList": [
       // list of rooms to archive
@@ -81,11 +80,6 @@ $ yarn run build:watch
 ----
 # CLI
 
-> TODO
-
-- Add cli processor modules
-- Make Papertrail optional
-
 ## Features
 
 ### CLI options
@@ -111,3 +105,10 @@ total downloadable messages/minute = `100 x 100` = `10,000` messages per minute
   Hence, the next time the app is run, it removes the archived rooms from the list.  
   The expected behavior is that it should simply ignore the archived rooms and only consider the non archived rooms.  
   This results in archive pattern download behaving weird i.e. since it cannot verify if a particular room was archived, it redownloads the room and appends it to the end. (resulting in duplication)
+- HTTP Status `429` rate limiter error. Requests are not being rate limited even if using [**`rate-limiter-api`**](http://npm.im/rate-limiter-api)
+
+
+# TODO
+
+- Add cli processor modules
+- Make Papertrail optional
