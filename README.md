@@ -3,10 +3,12 @@
 
 # Usage
 
+Install [**yarn**](https://yarnpkg.com/en/docs/install) package manager.
+
 Install `gitter-archive` as global.
 
 ```sh
-$ npm i -g gitter-archive
+$ yarn global gitter-archive
 ```
 
 Add a `.gitterarchiverc[.json|.js|.yml|.yaml]` or `gitterarchive.config.js` file in the directory where you execute the CLI in the following format.  
@@ -73,6 +75,12 @@ $ nodemon -q -x yarn run start:dev
 ```sh
 $ yarn global nodemon
 $ yarn run build:watch
+```
+
+Then link it as global
+
+```sh
+$ yarn link
 ```
 
 ----
