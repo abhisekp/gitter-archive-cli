@@ -4111,10 +4111,6 @@ url-parse-lax@^1.0.0:
   dependencies:
     prepend-http "^1.0.1"
 
-url-template@^2.0.8:
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/url-template/-/url-template-2.0.8.tgz#fc565a3cccbff7730c775f5641f9555791439f21"
-
 use@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/use/-/use-2.0.0.tgz#ca7433aeb802bdb23a14c241437d41ddbbf19aba"
