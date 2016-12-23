@@ -1,6 +1,6 @@
 {
   "name": "gitter-archive-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Gitter Chat room message downloader",
   "main": "lib/index.js",
   "preferGlobal": true,
