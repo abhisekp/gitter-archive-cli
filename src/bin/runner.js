@@ -81,7 +81,7 @@ const runAsync = async () => {
     const appConfig = await appConfigAsync || {};
 
     // get room list from store
-    const roomList = await getRoomListAsync({store, appConfig, gitterClient: gArc.gitterClients[0]});
+    const roomList = await getRoomListAsync({store, appConfig, gitterClient: gArc.getNextGitterClient()});
     gArc.logger.info('Got a list of rooms to archive');
 
     // save the room list in store
