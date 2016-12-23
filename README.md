@@ -80,7 +80,8 @@ $ yarn run build:watch
 Then link it as global
 
 ```sh
-$ yarn link
+# for globally making the cli and the module available
+$ npm link
 ```
 
 ----
