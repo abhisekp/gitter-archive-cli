@@ -18,8 +18,24 @@
   "bin": {
     "gitter-archive": "bin/index.js"
   },
+  "files": [
+    "lib",
+    "bin"
+  ],
   "author": "Abhisek Pattnaik <abhisekp@engineer.com> (https://about.me/abhisekp)",
   "license": "MIT",
+  "homepage": "https://github.com/abhisekp/gitter-archive-cli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abhisekp/gitter-archive-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/abhisekp/gitter-archive-cli/issues"
+  },
+  "keywords": [
+    "gitter",
+    "archive"
+  ],
   "dependencies": {
     "app-root-path": "^2.0.1",
     "axios": "^0.15.3",
