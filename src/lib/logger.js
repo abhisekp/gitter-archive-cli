@@ -18,11 +18,10 @@ const getPapertrailLogger = (host, port) => {
 		colorize: true,
 	});
 
-	ptLogger.on('error', ::logger.info);
-	ptLogger.on('connect', ::logger.info);
-
 	return ptLogger;
 }
+
+const ptLogger = getPapertrailLogger(PAPERTRAIL_HOST, PAPERTRAIL_PORT);
 
 const consoleLogger = new winston.transports.Console({
 	colorize: true,
@@ -36,7 +35,12 @@ const logger = new winston.Logger({
 		warn: 2,
 		error: 3,
 	},
-	transports: _.compact([getPapertrailLogger(PAPERTRAIL_HOST, PAPERTRAIL_PORT), consoleLogger]),
+	transports: _.compact([ptLogger, consoleLogger]),
 });
+
+if (_.isObject(ptLogger)) {
+	ptLogger.on('error', ::logger.info);
+	ptLogger.on('connect', ::logger.info);
+}
 
 export {logger};
