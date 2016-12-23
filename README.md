@@ -97,7 +97,7 @@ $ npm link
 
 ## Features
 
-### CLI options
+### CLI options (TODO)
 
 - `--boost` - boost archiving using `skip` parameter
 - `-b` - beforeId 
