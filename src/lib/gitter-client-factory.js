@@ -4,8 +4,6 @@ import axios from 'axios';
 import promiseRetry from 'promise-retry';
 import _ from 'lodash/fp';
 import stampit from 'stampit';
-// import {dedent} from 'dentist';
-// import {logger} from './logger';
 
 /* Debug Logs */
 const logGitter = debug('gitter-archive:gitter');
@@ -124,8 +122,8 @@ const GitterClientFactory = stampit({
 			});
 
 			return promiseRetry({
-				retries: 3,
-				maxTimeout: 60 * 60 * 1000, /* 1 hour */
+				retries: 10,
+				maxTimeout: 3600e3, /* 1 hour */
 			}, taskFn);
 		}
 	}
