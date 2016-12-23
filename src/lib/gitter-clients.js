@@ -1,4 +1,3 @@
-import appRoot from 'app-root-path';
 import _ from 'lodash/fp';
 import {GitterClientFactory} from './gitter-client-factory';
 import {RoomResources} from './room-resources';
@@ -12,7 +11,22 @@ const getAllGitterClients = _.map(createGitterClient);
 
 const gitterClients = getAllGitterClients(gitterTokens);
 
+const getNextGitterClient = (() => {
+	let clientIdx = 0;
+
+	return () => {
+		const client = gitterClients[clientIdx];
+
+		log(`currentClientIdx: ${clientIdx}`);
+		const totalClients = _.size(gitterClients);
+		clientIdx = cyclicNext(totalClients, clientIdx);
+
+		return client;
+	};
+})();
+
 export {
 	getAllGitterClients,
 	gitterClients,
+	getNextGitterClient,
 };

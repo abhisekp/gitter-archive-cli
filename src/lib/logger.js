@@ -1,5 +1,4 @@
 import winston from 'winston';
-import appRoot from 'app-root-path';
 import {Papertrail} from 'winston-papertrail';
 import {env} from './app-config';
 
