@@ -9,7 +9,6 @@ import {
 	saveError,
 } from './save-messages';
 import {pickDeepAll} from './util';
-import cyclicNext from 'cyclic-next';
 
 const log = debug('gitter-archive');
 
