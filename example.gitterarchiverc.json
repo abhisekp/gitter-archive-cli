@@ -1,0 +1,15 @@
+{
+  "rooms": {
+    "noArchiveList": [],
+    "archiveNoDeleteList": [],
+    "archiveList": []
+  },
+
+  "groups": {
+    "enabled": [{
+      "uri": "",
+      "id": ""
+    }],
+    "disabled": []
+  }
+}
