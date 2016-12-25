@@ -23,7 +23,8 @@
   },
   "files": [
     "lib",
-    "bin"
+    "bin",
+    "index.js"
   ],
   "author": "Abhisek Pattnaik <abhisekp@engineer.com> (https://about.me/abhisekp)",
   "license": "MIT",
