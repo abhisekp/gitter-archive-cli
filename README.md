@@ -126,3 +126,7 @@ total downloadable messages/minute = `100 x 100` = `10,000` messages per minute
 # TODO
 
 - Add cli processor modules
+- Update rooms
+- CLI should auto create `.env` and `.gitterarchiverc.json` if not present
+- Fetch group id given a room name
+- Fetch by room name
