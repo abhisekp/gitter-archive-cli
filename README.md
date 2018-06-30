@@ -1,7 +1,7 @@
 <h1 align="center">Gitter Archive</h1>
 <p align="center">Gitter Chat room message downloader</p>
 
-[![npm](https://img.shields.io/npm/v/gitter-archive-cli.svg)](https://www.npmjs.com/package/gitter-archive-cli) [![npm](https://img.shields.io/npm/l/gitter-archive-cli.svg)](https://github.com/abhisekp/gitter-archive-cli)
+[![npm](https://img.shields.io/npm/v/gitter-archive-cli.svg)](https://www.npmjs.com/package/gitter-archive-cli) [![npm](https://img.shields.io/npm/l/gitter-archive-cli.svg)](https://github.com/abhisekp/gitter-archive-cli) [![Greenkeeper badge](https://badges.greenkeeper.io/abhisekp/gitter-archive-cli.svg)](https://greenkeeper.io/)
 
 # Usage
 
