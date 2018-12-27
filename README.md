@@ -10,7 +10,7 @@ Install [**yarn**](https://yarnpkg.com/en/docs/install) package manager.
 Install `gitter-archive-cli` as global.
 
 ```sh
-$ yarn global gitter-archive-cli
+$ yarn add global gitter-archive-cli
 
 # OR
 
