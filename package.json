@@ -53,7 +53,7 @@
     "dotenv": "^2.0.0",
     "extglob": "^1.1.0",
     "hjson": "^2.3.1",
-    "lodash": "^4.17.2",
+    "lodash": "^4.17.20",
     "mkpath": "^1.0.0",
     "npm-run-all": "^3.1.2",
     "promise-retry": "^1.1.1",
