@@ -42,7 +42,7 @@
   ],
   "dependencies": {
     "app-root-path": "^2.0.1",
-    "axios": "^0.15.3",
+    "axios": "^0.18.1",
     "babel-polyfill": "^6.20.0",
     "cosmiconfig": "^2.1.1",
     "cross-env": "^3.1.3",
