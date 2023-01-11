@@ -49,7 +49,7 @@
     "csv-write-stream": "^2.0.0",
     "cyclic-next": "^1.0.1",
     "data-store": "^0.16.1",
-    "debug": "^2.3.3",
+    "debug": "^3.1.0",
     "dotenv": "^2.0.0",
     "extglob": "^1.1.0",
     "hjson": "^2.3.1",
