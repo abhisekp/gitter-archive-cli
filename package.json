@@ -11,12 +11,13 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node ./bin/index.js",
     "start:dev": "cross-env NODE_ENV=development babel-node ./src/bin/index.js",
-    "prepublish": "run-s build",
+    "prepublish": "yarn run snyk-protect && run-s build",
     "prebuild": "rimraf bin/ lib/",
     "build": "cross-env NODE_ENV=production babel -D -d . src",
     "prebuild:watch": "rimraf bin/ lib/",
     "build:watch": "cross-env NODE_ENV=production nodemon -q -w src -e js -x babel -D -d . src",
-    "test": "xo"
+    "test": "xo",
+    "snyk-protect": "snyk protect"
   },
   "bin": {
     "gitter-archive": "bin/index.js"
@@ -63,7 +64,8 @@
     "stampit": "^3.0.6",
     "vorpal": "^1.11.4",
     "winston": "^2.3.0",
-    "winston-papertrail": "^1.0.4"
+    "winston-papertrail": "^1.0.4",
+    "snyk": "^1.319.1"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -105,5 +107,6 @@
       "bin"
     ],
     "parser": "babel-eslint"
-  }
+  },
+  "snyk": true
 }
