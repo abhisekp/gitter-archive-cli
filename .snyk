@@ -1,0 +1,277 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.25.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - babel-cli > babel-core > debug:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:debug:20170905'
+        path: babel-cli > babel-core > debug
+    - xo > eslint > debug:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:debug:20170905'
+        path: xo > eslint > debug
+    - babel-preset-env > babel-plugin-transform-es2015-block-scoping > babel-template > babel-traverse > debug:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:debug:20170905'
+        path: >-
+          babel-preset-env > babel-plugin-transform-es2015-block-scoping >
+          babel-template > babel-traverse > debug
+    - babel-cli > babel-core > babel-helpers > babel-template > babel-traverse > debug:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:debug:20170905'
+        path: >-
+          babel-cli > babel-core > babel-helpers > babel-template >
+          babel-traverse > debug
+    - babel-preset-latest > babel-preset-es2015 > babel-plugin-transform-es2015-block-scoping > babel-template > babel-traverse > debug:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:debug:20170905'
+        path: >-
+          babel-preset-latest > babel-preset-es2015 >
+          babel-plugin-transform-es2015-block-scoping > babel-template >
+          babel-traverse > debug
+    - babel-preset-stage-0 > babel-preset-stage-1 > babel-plugin-transform-class-constructor-call > babel-template > babel-traverse > debug:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:debug:20170905'
+        path: >-
+          babel-preset-stage-0 > babel-preset-stage-1 >
+          babel-plugin-transform-class-constructor-call > babel-template >
+          babel-traverse > debug
+    - babel-cli > chokidar > fsevents > node-pre-gyp > tar-pack > debug:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:debug:20170905'
+        path: babel-cli > chokidar > fsevents > node-pre-gyp > tar-pack > debug
+  'npm:extend:20180424':
+    - babel-cli > chokidar > fsevents > node-pre-gyp > request > extend:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:extend:20180424'
+        path: babel-cli > chokidar > fsevents > node-pre-gyp > request > extend
+  'npm:hoek:20180212':
+    - babel-cli > chokidar > fsevents > node-pre-gyp > request > hawk > hoek:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:hoek:20180212'
+        path: babel-cli > chokidar > fsevents > node-pre-gyp > request > hawk > hoek
+    - babel-cli > chokidar > fsevents > node-pre-gyp > request > hawk > boom > hoek:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:hoek:20180212'
+        path: >-
+          babel-cli > chokidar > fsevents > node-pre-gyp > request > hawk > boom
+          > hoek
+    - babel-cli > chokidar > fsevents > node-pre-gyp > request > hawk > sntp > hoek:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:hoek:20180212'
+        path: >-
+          babel-cli > chokidar > fsevents > node-pre-gyp > request > hawk > sntp
+          > hoek
+  SNYK-JS-LODASH-567746:
+    - babel-plugin-lodash > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: babel-plugin-lodash > lodash
+    - babel-cli > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: babel-cli > lodash
+    - babel-cli > babel-core > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: babel-cli > babel-core > lodash
+    - babel-preset-env > babel-plugin-transform-es2015-block-scoping > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          babel-preset-env > babel-plugin-transform-es2015-block-scoping >
+          lodash
+    - xo > eslint > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: xo > eslint > lodash
+    - xo > eslint > inquirer > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: xo > eslint > inquirer > lodash
+    - babel-cli > babel-core > babel-generator > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: babel-cli > babel-core > babel-generator > lodash
+    - babel-preset-env > babel-plugin-transform-es2015-block-scoping > babel-template > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          babel-preset-env > babel-plugin-transform-es2015-block-scoping >
+          babel-template > lodash
+    - babel-cli > babel-core > babel-register > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: babel-cli > babel-core > babel-register > lodash
+    - babel-preset-latest > babel-preset-es2015 > babel-plugin-transform-es2015-block-scoping > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          babel-preset-latest > babel-preset-es2015 >
+          babel-plugin-transform-es2015-block-scoping > lodash
+    - babel-preset-env > babel-plugin-transform-es2015-classes > babel-helper-define-map > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          babel-preset-env > babel-plugin-transform-es2015-classes >
+          babel-helper-define-map > lodash
+    - babel-preset-env > babel-plugin-transform-es2015-sticky-regex > babel-helper-regex > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          babel-preset-env > babel-plugin-transform-es2015-sticky-regex >
+          babel-helper-regex > lodash
+    - xo > eslint > table > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: xo > eslint > table > lodash
+    - xo > eslint-plugin-ava > enhance-visitors > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: xo > eslint-plugin-ava > enhance-visitors > lodash
+    - babel-cli > babel-core > babel-generator > babel-types > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: babel-cli > babel-core > babel-generator > babel-types > lodash
+    - babel-preset-env > babel-plugin-transform-es2015-block-scoping > babel-template > babel-traverse > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          babel-preset-env > babel-plugin-transform-es2015-block-scoping >
+          babel-template > babel-traverse > lodash
+    - babel-cli > babel-core > babel-helpers > babel-template > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: babel-cli > babel-core > babel-helpers > babel-template > lodash
+    - babel-preset-latest > babel-preset-es2015 > babel-plugin-transform-es2015-block-scoping > babel-template > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          babel-preset-latest > babel-preset-es2015 >
+          babel-plugin-transform-es2015-block-scoping > babel-template > lodash
+    - babel-preset-stage-0 > babel-preset-stage-1 > babel-plugin-transform-class-constructor-call > babel-template > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          babel-preset-stage-0 > babel-preset-stage-1 >
+          babel-plugin-transform-class-constructor-call > babel-template >
+          lodash
+    - babel-preset-latest > babel-preset-es2015 > babel-plugin-transform-es2015-classes > babel-helper-define-map > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          babel-preset-latest > babel-preset-es2015 >
+          babel-plugin-transform-es2015-classes > babel-helper-define-map >
+          lodash
+    - babel-preset-latest > babel-preset-es2015 > babel-plugin-transform-es2015-sticky-regex > babel-helper-regex > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          babel-preset-latest > babel-preset-es2015 >
+          babel-plugin-transform-es2015-sticky-regex > babel-helper-regex >
+          lodash
+    - babel-preset-env > babel-plugin-transform-es2015-block-scoping > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          babel-preset-env > babel-plugin-transform-es2015-block-scoping >
+          babel-template > babel-traverse > babel-types > lodash
+    - babel-cli > babel-core > babel-helpers > babel-template > babel-traverse > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          babel-cli > babel-core > babel-helpers > babel-template >
+          babel-traverse > lodash
+    - babel-preset-latest > babel-preset-es2015 > babel-plugin-transform-es2015-block-scoping > babel-template > babel-traverse > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          babel-preset-latest > babel-preset-es2015 >
+          babel-plugin-transform-es2015-block-scoping > babel-template >
+          babel-traverse > lodash
+    - babel-preset-stage-0 > babel-preset-stage-1 > babel-plugin-transform-class-constructor-call > babel-template > babel-traverse > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          babel-preset-stage-0 > babel-preset-stage-1 >
+          babel-plugin-transform-class-constructor-call > babel-template >
+          babel-traverse > lodash
+    - babel-cli > babel-core > babel-helpers > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          babel-cli > babel-core > babel-helpers > babel-template >
+          babel-traverse > babel-types > lodash
+    - babel-preset-latest > babel-preset-es2015 > babel-plugin-transform-es2015-block-scoping > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          babel-preset-latest > babel-preset-es2015 >
+          babel-plugin-transform-es2015-block-scoping > babel-template >
+          babel-traverse > babel-types > lodash
+    - babel-preset-stage-0 > babel-preset-stage-1 > babel-plugin-transform-class-constructor-call > babel-template > babel-traverse > babel-types > lodash:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: SNYK-JS-LODASH-567746
+        path: >-
+          babel-preset-stage-0 > babel-preset-stage-1 >
+          babel-plugin-transform-class-constructor-call > babel-template >
+          babel-traverse > babel-types > lodash
+  'npm:ms:20170412':
+    - babel-preset-env > babel-plugin-transform-es2015-block-scoping > babel-template > babel-traverse > debug > ms:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:ms:20170412'
+        path: >-
+          babel-preset-env > babel-plugin-transform-es2015-block-scoping >
+          babel-template > babel-traverse > debug > ms
+    - babel-cli > babel-core > babel-helpers > babel-template > babel-traverse > debug > ms:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:ms:20170412'
+        path: >-
+          babel-cli > babel-core > babel-helpers > babel-template >
+          babel-traverse > debug > ms
+    - babel-preset-latest > babel-preset-es2015 > babel-plugin-transform-es2015-block-scoping > babel-template > babel-traverse > debug > ms:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:ms:20170412'
+        path: >-
+          babel-preset-latest > babel-preset-es2015 >
+          babel-plugin-transform-es2015-block-scoping > babel-template >
+          babel-traverse > debug > ms
+    - babel-preset-stage-0 > babel-preset-stage-1 > babel-plugin-transform-class-constructor-call > babel-template > babel-traverse > debug > ms:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:ms:20170412'
+        path: >-
+          babel-preset-stage-0 > babel-preset-stage-1 >
+          babel-plugin-transform-class-constructor-call > babel-template >
+          babel-traverse > debug > ms
+    - babel-cli > chokidar > fsevents > node-pre-gyp > tar-pack > debug > ms:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:ms:20170412'
+        path: babel-cli > chokidar > fsevents > node-pre-gyp > tar-pack > debug > ms
+  'npm:qs:20170213':
+    - babel-cli > chokidar > fsevents > node-pre-gyp > request > qs:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:qs:20170213'
+        path: babel-cli > chokidar > fsevents > node-pre-gyp > request > qs
+  'npm:stringstream:20180511':
+    - babel-cli > chokidar > fsevents > node-pre-gyp > request > stringstream:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:stringstream:20180511'
+        path: >-
+          babel-cli > chokidar > fsevents > node-pre-gyp > request >
+          stringstream
+  'npm:tough-cookie:20170905':
+    - babel-cli > chokidar > fsevents > node-pre-gyp > request > tough-cookie:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:tough-cookie:20170905'
+        path: >-
+          babel-cli > chokidar > fsevents > node-pre-gyp > request >
+          tough-cookie
+  'npm:tunnel-agent:20170305':
+    - babel-cli > chokidar > fsevents > node-pre-gyp > request > tunnel-agent:
+        patched: '2025-02-23T09:48:35.330Z'
+        id: 'npm:tunnel-agent:20170305'
+        path: >-
+          babel-cli > chokidar > fsevents > node-pre-gyp > request >
+          tunnel-agent

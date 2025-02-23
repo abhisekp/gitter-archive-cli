@@ -11,12 +11,13 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node ./bin/index.js",
     "start:dev": "cross-env NODE_ENV=development babel-node ./src/bin/index.js",
-    "prepublish": "run-s build",
+    "prepublish": "yarn run snyk-protect && run-s build",
     "prebuild": "rimraf bin/ lib/",
     "build": "cross-env NODE_ENV=production babel -D -d . src",
     "prebuild:watch": "rimraf bin/ lib/",
     "build:watch": "cross-env NODE_ENV=production nodemon -q -w src -e js -x babel -D -d . src",
-    "test": "xo"
+    "test": "xo",
+    "snyk-protect": "snyk-protect"
   },
   "bin": {
     "gitter-archive": "bin/index.js"
@@ -63,20 +64,21 @@
     "stampit": "^3.0.6",
     "vorpal": "^1.11.4",
     "winston": "^2.3.0",
-    "winston-papertrail": "^1.0.4"
+    "winston-papertrail": "^1.0.4",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-eslint": "^7.1.1",
-    "babel-plugin-lodash": "^3.2.11",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-lodash": "^3.3.3",
     "babel-preset-babili": "^0.0.9",
     "babel-preset-env": "^1.0.2",
     "babel-preset-latest": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0",
-    "eslint": "^3.9.1",
+    "babel-preset-stage-0": "^6.22.0",
+    "eslint": "^9.0.0",
     "eslint-config-airbnb-base": "^11.0.0",
-    "eslint-plugin-import": "^2.1.0",
-    "xo": "^0.17.1"
+    "eslint-plugin-import": "^2.26.0",
+    "xo": "^0.57.0"
   },
   "babel": {
     "sourceMap": "inline",
@@ -105,5 +107,6 @@
       "bin"
     ],
     "parser": "babel-eslint"
-  }
+  },
+  "snyk": true
 }
